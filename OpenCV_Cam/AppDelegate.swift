@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import opencv2
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
