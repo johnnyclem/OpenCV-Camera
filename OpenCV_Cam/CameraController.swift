@@ -83,7 +83,7 @@ class CameraController: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             captureSession.addOutput(videoDataOutput)
         }
         // set video preset
-        captureSession.sessionPreset = AVCaptureSession.Preset.vga640x480
+        captureSession.sessionPreset = AVCaptureSession.Preset.hd1280x720
         // set orientation
         if let connection = videoDataOutput.connection(with: .video) {
             connection.videoOrientation = .portrait

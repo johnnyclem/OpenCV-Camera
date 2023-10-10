@@ -10,6 +10,7 @@
 #import <opencv2/opencv2.h>
 #import <opencv2/objdetect/objdetect.hpp>
 #import <opencv2/objdetect.hpp>
+#import <CoreGraphics/CoreGraphics.h>
 
 @implementation OpenCVDetector
 
@@ -18,10 +19,15 @@ cv::CascadeClassifier catCascade;
 bool cascade_loaded = false;
 
 + (UIImage *)detectFeaturesIn:(UIImage *)image forSpecies:(NSString *)species {
-    
-    // convert the supplied image into OpenCV mat format
+
+    // vector to store detected features
     std::vector<cv::Rect> detectedFeatures;
-    cv::Mat frame = [OpenCVDetector cvMatFromUIImage:image];
+
+    // resize the image down to SD resolution
+    UIImage *resizedImage = [OpenCVDetector resizeImage:image toSize:CGSizeMake(360, 640)];
+
+    // convert the supplied image into OpenCV mat format
+    cv::Mat frame = [OpenCVDetector cvMatFromUIImage:resizedImage];
     // Transform source image to gray
     cv::Mat frame_gray;
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
@@ -73,32 +79,36 @@ bool cascade_loaded = false;
 }
 
 + (cv::Mat)cvMatFromUIImage:(UIImage *)image {
+    // Get colorspace from current image
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
     CGFloat rows = image.size.height;
     cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
+    // create CGContext
     CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,
-    cols,                       // Width of bitmap
-    rows,                       // Height of bitmap
-    8,                          // Bits per component
-    cvMat.step[0],              // Bytes per row
-    colorSpace,                 // Colorspace
-    kCGImageAlphaNoneSkipLast |
-    kCGBitmapByteOrderDefault); // Bitmap info flags
+                                                    cols,
+                                                    rows,
+                                                    8,
+                                                    cvMat.step[0],
+                                                    colorSpace,
+                                                    kCGImageAlphaNoneSkipLast | kCGBitmapByteOrderDefault);
+    // Draw image
     CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
     CGContextRelease(contextRef);
     return cvMat;
 }
 
-+(BOOL) checkForBurryImage:(UIImage *)image forCameraPosition:(AVCaptureDevicePosition)position {
++ (BOOL) checkForBurryImage:(UIImage *)image forCameraPosition:(AVCaptureDevicePosition)position {
+    // resize the image because this operation is computationally expensive
+    UIImage *resizedImage = [OpenCVDetector resizeImage:image toSize:CGSizeMake(360, 640)];
     // convert UIImage to cv::Mat format
-    cv::Mat matImage = [OpenCVDetector cvMatFromUIImage:image];
+    cv::Mat matImage = [OpenCVDetector cvMatFromUIImage:resizedImage];
     // blur threshold of 75 gives good results for rear camera
     int blurThreshhold;
     if (position == AVCaptureDevicePositionBack) {
         blurThreshhold = 75;
     } else {
-        blurThreshhold = 20;
+        blurThreshhold = 30;
     }
     
     cv::Mat finalImage;
@@ -152,4 +162,37 @@ bool cascade_loaded = false;
     return isBlur;
 }
 
++ (UIImage *)resizeImage:(UIImage *)image toSize:(CGSize)newSize {
+    CGFloat scale = MAX(1.0f, image.scale);
+    CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width*scale, newSize.height*scale));
+    CGImageRef imageRef = image.CGImage;
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bitmap = CGBitmapContextCreate(
+                                                NULL,
+                                                newRect.size.width,
+                                                newRect.size.height,
+                                                8,
+                                                (newRect.size.width * 4),
+                                                colorSpace,
+                                                kCGImageAlphaPremultipliedLast
+                                                );
+    CGColorSpaceRelease(colorSpace);
+    
+    // Set the quality level to use when rescaling
+    CGContextSetInterpolationQuality(bitmap, kCGInterpolationDefault);
+    
+    // Draw into the context; this scales the image
+    CGContextDrawImage(bitmap, newRect, imageRef);
+    
+    // Get the resized image from the context and a UIImage
+    CGImageRef newImageRef = CGBitmapContextCreateImage(bitmap);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef scale:scale orientation:UIImageOrientationUp];
+    
+    // Clean up
+    CGContextRelease(bitmap);
+    CGImageRelease(newImageRef);
+    
+    return newImage;
+}
 @end
