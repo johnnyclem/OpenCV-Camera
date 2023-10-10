@@ -19,7 +19,7 @@ class CameraController: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     private let sessionQueue = DispatchQueue(label: "AVCaptureSessionQueue")
     private let captureSession = AVCaptureSession()
     private let videoDataOutput = AVCaptureVideoDataOutput()
-    private var cameraPosition = AVCaptureDevice.Position.front
+    var cameraPosition = AVCaptureDevice.Position.front
     private var hasCameraPermissions = false {
         didSet {
             if hasCameraPermissions == true {

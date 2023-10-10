@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface OpenCVDetector : NSObject
 
 + (UIImage *)detectFeaturesIn:(UIImage *)image forSpecies:(NSString *)species;
-+ (BOOL)checkForBurryImage:(UIImage *)image;
++ (BOOL) checkForBurryImage:(UIImage *)image forCameraPosition:(AVCaptureDevicePosition)position;
 
 @end

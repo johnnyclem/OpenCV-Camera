@@ -90,11 +90,16 @@ bool cascade_loaded = false;
     return cvMat;
 }
 
-+(BOOL) checkForBurryImage:(UIImage *)image {
++(BOOL) checkForBurryImage:(UIImage *)image forCameraPosition:(AVCaptureDevicePosition)position {
     // convert UIImage to cv::Mat format
     cv::Mat matImage = [OpenCVDetector cvMatFromUIImage:image];
-    // blur threshold of 75 gives good results, play with other values to fine tune
-    int blurThreshhold = 75;
+    // blur threshold of 75 gives good results for rear camera
+    int blurThreshhold;
+    if (position == AVCaptureDevicePositionBack) {
+        blurThreshhold = 75;
+    } else {
+        blurThreshhold = 20;
+    }
     
     cv::Mat finalImage;
     cv::Mat matImageGrey;

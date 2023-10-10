@@ -45,7 +45,7 @@ class ViewController: UIViewController, CameraControllerDelegate {
             case 1:
                 self.imageView.image = OpenCVDetector.detectFeatures(in: image, forSpecies: "cat")
             default:
-                let status = OpenCVDetector.check(forBurryImage: image)
+                let status = OpenCVDetector.check(forBurryImage: image, forCameraPosition: self.cameraController.cameraPosition)
                 if status == true {
                     self.blurryLabel.isHidden = false
                 }
