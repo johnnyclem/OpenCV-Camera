@@ -33,8 +33,8 @@ bool cascade_loaded = false;
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
     
     // load face detection cascade
-    NSString *face_cascade_path = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_default" ofType:@"xml"];
-    NSString *cat_cascade_path = [[NSBundle mainBundle] pathForResource:@"haarcascade_cat" ofType:@"xml"];
+    NSString *face_cascade_path = [[NSBundle mainBundle] pathForResource:faceCascadePath ofType:@"xml"];
+    NSString *cat_cascade_path = [[NSBundle mainBundle] pathForResource:catCascadePath ofType:@"xml"];
     if (!cascade_loaded) {
         if (!faceCascade.load( std::string([face_cascade_path UTF8String]))) {
             NSLog(@"Error loading face cascade");
@@ -126,7 +126,7 @@ bool cascade_loaded = false;
     cv::medianBlur(matImageGrey, newEX, MEDIAN_BLUR_FILTER_SIZE);
     matImageGrey.release();
 
-    // Copmute the Laplacian of the blurred image to detect edges
+    // Compute the Laplacian of the blurred image to detect edges
     cv::Mat laplacianImage;
     cv::Laplacian(newEX, laplacianImage, CV_8U);
     newEX.release();

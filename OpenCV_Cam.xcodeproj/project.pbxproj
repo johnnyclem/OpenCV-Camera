@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF61DBF02AD7103500B2C01B /* blurry_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF61DBEE2AD7103500B2C01B /* blurry_image.jpg */; };
+		EF61DBF22AD7122A00B2C01B /* clear_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF61DBF12AD7122A00B2C01B /* clear_image.jpg */; };
 		EFD041782AD466A30005F861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD041772AD466A30005F861 /* AppDelegate.swift */; };
 		EFD0417A2AD466A30005F861 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD041792AD466A30005F861 /* SceneDelegate.swift */; };
 		EFD0417C2AD466A30005F861 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD0417B2AD466A30005F861 /* ViewController.swift */; };
@@ -14,8 +16,6 @@
 		EFD041812AD466A40005F861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD041802AD466A40005F861 /* Assets.xcassets */; };
 		EFD041842AD466A40005F861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFD041822AD466A40005F861 /* LaunchScreen.storyboard */; };
 		EFD0418F2AD466A50005F861 /* OpenCV_CamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD0418E2AD466A50005F861 /* OpenCV_CamTests.swift */; };
-		EFD041992AD466A50005F861 /* OpenCV_CamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD041982AD466A50005F861 /* OpenCV_CamUITests.swift */; };
-		EFD0419B2AD466A50005F861 /* OpenCV_CamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD0419A2AD466A50005F861 /* OpenCV_CamUITestsLaunchTests.swift */; };
 		EFD041AD2AD46B700005F861 /* OpenCVDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFD041AC2AD46B700005F861 /* OpenCVDetector.mm */; };
 		EFD041B02AD4710C0005F861 /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = EFD041AF2AD4710C0005F861 /* haarcascade_frontalface_default.xml */; };
 		EFD041B72AD475D40005F861 /* OpenCV in Frameworks */ = {isa = PBXBuildFile; productRef = EFD041B62AD475D40005F861 /* OpenCV */; };
@@ -31,16 +31,11 @@
 			remoteGlobalIDString = EFD041732AD466A30005F861;
 			remoteInfo = OpenCV_Cam;
 		};
-		EFD041952AD466A50005F861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EFD0416C2AD466A30005F861 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EFD041732AD466A30005F861;
-			remoteInfo = OpenCV_Cam;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF61DBEE2AD7103500B2C01B /* blurry_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurry_image.jpg; sourceTree = "<group>"; };
+		EF61DBF12AD7122A00B2C01B /* clear_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clear_image.jpg; sourceTree = "<group>"; };
 		EFD041742AD466A30005F861 /* OpenCV_Cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCV_Cam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD041772AD466A30005F861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFD041792AD466A30005F861 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,9 +46,6 @@
 		EFD041852AD466A40005F861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFD0418A2AD466A50005F861 /* OpenCV_CamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenCV_CamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD0418E2AD466A50005F861 /* OpenCV_CamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCV_CamTests.swift; sourceTree = "<group>"; };
-		EFD041942AD466A50005F861 /* OpenCV_CamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenCV_CamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFD041982AD466A50005F861 /* OpenCV_CamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCV_CamUITests.swift; sourceTree = "<group>"; };
-		EFD0419A2AD466A50005F861 /* OpenCV_CamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCV_CamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EFD041AA2AD46B700005F861 /* OpenCV_Cam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCV_Cam-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFD041AB2AD46B700005F861 /* OpenCVDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVDetector.h; sourceTree = "<group>"; };
 		EFD041AC2AD46B700005F861 /* OpenCVDetector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVDetector.mm; sourceTree = "<group>"; };
@@ -79,13 +71,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFD041912AD466A50005F861 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,7 +79,6 @@
 			children = (
 				EFD041762AD466A30005F861 /* OpenCV_Cam */,
 				EFD0418D2AD466A50005F861 /* OpenCV_CamTests */,
-				EFD041972AD466A50005F861 /* OpenCV_CamUITests */,
 				EFD041752AD466A30005F861 /* Products */,
 				EFD041B12AD474FA0005F861 /* Frameworks */,
 			);
@@ -105,7 +89,6 @@
 			children = (
 				EFD041742AD466A30005F861 /* OpenCV_Cam.app */,
 				EFD0418A2AD466A50005F861 /* OpenCV_CamTests.xctest */,
-				EFD041942AD466A50005F861 /* OpenCV_CamUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,18 +116,11 @@
 		EFD0418D2AD466A50005F861 /* OpenCV_CamTests */ = {
 			isa = PBXGroup;
 			children = (
+				EF61DBEE2AD7103500B2C01B /* blurry_image.jpg */,
+				EF61DBF12AD7122A00B2C01B /* clear_image.jpg */,
 				EFD0418E2AD466A50005F861 /* OpenCV_CamTests.swift */,
 			);
 			path = OpenCV_CamTests;
-			sourceTree = "<group>";
-		};
-		EFD041972AD466A50005F861 /* OpenCV_CamUITests */ = {
-			isa = PBXGroup;
-			children = (
-				EFD041982AD466A50005F861 /* OpenCV_CamUITests.swift */,
-				EFD0419A2AD466A50005F861 /* OpenCV_CamUITestsLaunchTests.swift */,
-			);
-			path = OpenCV_CamUITests;
 			sourceTree = "<group>";
 		};
 		EFD041AE2AD470FD0005F861 /* feature_detectors */ = {
@@ -204,24 +180,6 @@
 			productReference = EFD0418A2AD466A50005F861 /* OpenCV_CamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EFD041932AD466A50005F861 /* OpenCV_CamUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EFD041A42AD466A50005F861 /* Build configuration list for PBXNativeTarget "OpenCV_CamUITests" */;
-			buildPhases = (
-				EFD041902AD466A50005F861 /* Sources */,
-				EFD041912AD466A50005F861 /* Frameworks */,
-				EFD041922AD466A50005F861 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EFD041962AD466A50005F861 /* PBXTargetDependency */,
-			);
-			name = OpenCV_CamUITests;
-			productName = OpenCV_CamUITests;
-			productReference = EFD041942AD466A50005F861 /* OpenCV_CamUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -237,10 +195,6 @@
 						LastSwiftMigration = 1430;
 					};
 					EFD041892AD466A50005F861 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = EFD041732AD466A30005F861;
-					};
-					EFD041932AD466A50005F861 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = EFD041732AD466A30005F861;
 					};
@@ -264,7 +218,6 @@
 			targets = (
 				EFD041732AD466A30005F861 /* OpenCV_Cam */,
 				EFD041892AD466A50005F861 /* OpenCV_CamTests */,
-				EFD041932AD466A50005F861 /* OpenCV_CamUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,13 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EFD041922AD466A50005F861 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				EF61DBF02AD7103500B2C01B /* blurry_image.jpg in Resources */,
+				EF61DBF22AD7122A00B2C01B /* clear_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,15 +267,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFD041902AD466A50005F861 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EFD041992AD466A50005F861 /* OpenCV_CamUITests.swift in Sources */,
-				EFD0419B2AD466A50005F861 /* OpenCV_CamUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -335,11 +274,6 @@
 			isa = PBXTargetDependency;
 			target = EFD041732AD466A30005F861 /* OpenCV_Cam */;
 			targetProxy = EFD0418B2AD466A50005F861 /* PBXContainerItemProxy */;
-		};
-		EFD041962AD466A50005F861 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EFD041732AD466A30005F861 /* OpenCV_Cam */;
-			targetProxy = EFD041952AD466A50005F861 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -594,42 +528,6 @@
 			};
 			name = Release;
 		};
-		EFD041A52AD466A50005F861 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GV49AHY2S2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clem.OpenCV-CamUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OpenCV_Cam;
-			};
-			name = Debug;
-		};
-		EFD041A62AD466A50005F861 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GV49AHY2S2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clem.OpenCV-CamUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OpenCV_Cam;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -656,15 +554,6 @@
 			buildConfigurations = (
 				EFD041A22AD466A50005F861 /* Debug */,
 				EFD041A32AD466A50005F861 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EFD041A42AD466A50005F861 /* Build configuration list for PBXNativeTarget "OpenCV_CamUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EFD041A52AD466A50005F861 /* Debug */,
-				EFD041A62AD466A50005F861 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
