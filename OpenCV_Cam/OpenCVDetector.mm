@@ -28,14 +28,14 @@ bool cascade_loaded = false;
 
     // convert the supplied image into OpenCV mat format
     cv::Mat frame = [OpenCVDetector cvMatFromUIImage:resizedImage];
-    // Transform source image to gray
+    // Transform source image to grayscale
     cv::Mat frame_gray;
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
     
     // load face detection cascade
-    NSString *face_cascade_path = [[NSBundle mainBundle] pathForResource:faceCascadePath ofType:@"xml"];
-    NSString *cat_cascade_path = [[NSBundle mainBundle] pathForResource:catCascadePath ofType:@"xml"];
     if (!cascade_loaded) {
+        NSString *face_cascade_path = [[NSBundle mainBundle] pathForResource:faceCascadePath ofType:@"xml"];
+        NSString *cat_cascade_path = [[NSBundle mainBundle] pathForResource:catCascadePath ofType:@"xml"];
         if (!faceCascade.load( std::string([face_cascade_path UTF8String]))) {
             NSLog(@"Error loading face cascade");
             return image;
@@ -66,7 +66,7 @@ bool cascade_loaded = false;
     CGBitmapInfo bitmapInfo = kCGImageAlphaNoneSkipLast | kCGBitmapByteOrderDefault;
     size_t bitsPerComponent = 8;
     size_t bytesPerRow = frame.step[0];
-    CGColorSpaceRef colorSpace = (frame.elemSize() == 1 ? CGColorSpaceCreateDeviceGray() : CGColorSpaceCreateDeviceRGB());
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
     CGImageRef imageRef = CGImageCreate(frame.cols, frame.rows, bitsPerComponent, bitsPerComponent * frame.elemSize(), bytesPerRow, colorSpace, bitmapInfo, provider, NULL, false, kCGRenderingIntentDefault);
     UIImage *result = [UIImage imageWithCGImage:imageRef];
@@ -121,7 +121,7 @@ bool cascade_loaded = false;
     // Median size for blur filter
     const int MEDIAN_BLUR_FILTER_SIZE = 15;
 
-    // Apply the median blur to the grayscale image
+    // Apply the median blur to the grayscale image to remove noise
     cv::Mat newEX;
     cv::medianBlur(matImageGrey, newEX, MEDIAN_BLUR_FILTER_SIZE);
     matImageGrey.release();

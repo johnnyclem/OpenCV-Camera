@@ -63,7 +63,7 @@ class CameraController: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             print("unable to acquire camera permissions")
             return
         }
-        guard let captureDevice = captureDeviceForFrontCamera() else {
+        guard let captureDevice = captureDeviceForCamera() else {
             print("unable to get front face camera")
             return
         }
@@ -98,7 +98,7 @@ class CameraController: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         captureSession.commitConfiguration()
     }
     
-    func captureDeviceForFrontCamera() -> AVCaptureDevice? {
+    func captureDeviceForCamera() -> AVCaptureDevice? {
         
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(
             deviceTypes: [.builtInWideAngleCamera],
